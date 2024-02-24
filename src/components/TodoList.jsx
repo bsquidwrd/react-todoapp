@@ -6,8 +6,11 @@ export default function TodoList({ todos, setTodos }) {
     .slice()
     .sort((a, b) => Number(a.done) - Number(b.done));
 
+  const hideListClassName = todos.length > 0 ? "" : styles.hide;
+  const itemClassNames = [styles.list, hideListClassName];
+
   return (
-    <div className={styles.list}>
+    <div className={itemClassNames.join(" ")}>
       {sortedTodos.map((item) => (
         <TodoItem
           key={item.name}
