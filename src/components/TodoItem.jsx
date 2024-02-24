@@ -2,7 +2,7 @@ import styles from "./todoitem.module.css";
 
 export default function TodoItem({ item, todos, setTodos }) {
   function handleDelete(item) {
-    setTodos(todos.filter((todo) => todo.name !== item.name));
+    setTodos(todos.filter((todo) => todo !== item));
   }
 
   return (
