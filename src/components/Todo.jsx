@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
 import Footer from "./Footer";
 
 export default function Todo() {
-  const [todos, setTodos] = useState([]);
+  function getPreviousTodos() {
+    return JSON.parse(localStorage.getItem("todos")) || [];
+  }
+
+  const [todos, setTodos] = useState(getPreviousTodos);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const completedTodos = todos.filter((item) => item.done).length;
   const totalTodos = todos.length;
 
