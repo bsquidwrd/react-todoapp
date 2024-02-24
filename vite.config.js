@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/react-todoapp/",
   server: {
-    port: 3000,
+    port: 3001,
     watch: {
       usePolling: true,
     },
